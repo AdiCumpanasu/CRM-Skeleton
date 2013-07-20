@@ -15,9 +15,13 @@ var dateDeTrimis = {
                                 "token": "hY3j"
                              }, 
                     "data" : {
-                                "ID" : 5,  
-                                "columnName1": value1,  
-                                "columnName1": value1,... 
+                                "id" : null,  
+                                "username" : null, 
+                                "nume" : null, 
+                                "telefon" : null, 
+                                "email" : null, 
+                                "password" : null, 
+                                "tip" : null, 
                              }
                    };  // An ID = -1 will force an insert, otherwise it is update
 
@@ -25,8 +29,16 @@ var dateDeTrimis = {
                    
 function SaveData(entityName, entityId)
 {
-        // Prepare data for save
-    
+    // Prepare data for save
+    dateDeTrimis.data.id = $('#id').val();
+    dateDeTrimis.data.username = $('#username').val();
+    dateDeTrimis.data.nume = $('#nume').val();
+    dateDeTrimis.data.telefon = $('#nume').val();
+    dateDeTrimis.data.email = $('#nume').val();
+    dateDeTrimis.data.password = $('#nume').val();
+    dateDeTrimis.data.tip = $('#tip').val();
+
+    // Make POST request
         $.ajax({
         data: dateDeTrimis,
         type: "POST",

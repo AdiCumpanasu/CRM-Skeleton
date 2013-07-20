@@ -86,6 +86,7 @@ class Controller {
         //$json = json_decode($sJson); 
         $coloaneNecesare = $_POST["data"]["columns"];
         if ($this->_myDebug) {print_r ($_POST);}
+        $this->dbGet->logSQL(" Number of Filters: " . count($_POST["data"]["filters"]));
         $filtre = $_POST["data"]["filters"];
         $searchString = null;
         if(isset($_POST["data"]["searchString"]))
@@ -99,6 +100,7 @@ class Controller {
 
 	public function get($numeTabel, $id) {
         // Trace
+        $this->dbGet->logSQL("CONTROLLER : GET");
         if ($this->_myDebug) { echo get_class($this)." get<br>"; }
         if ($this->_myDebug) { echo get_class($this)." ".$numeTabel."<br>"; }
         //switch($numeTabel)

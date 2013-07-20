@@ -40,7 +40,8 @@ class GetFromDb
     public function get($entity){
         // Trace
         if ($this->_myDebug) { echo get_class($this)." Citeste elementul ".$entity->id." of type: ".get_class($entity). "<br>"; }
-        
+        $this->logSQL("GET");
+        $this->logSQL($sqlString);
         // Interogare
         $result = mysqli_query($this->con,"SELECT * FROM ".get_class($entity)." WHERE id=".$entity->id);
         if ($result){
@@ -61,6 +62,14 @@ class GetFromDb
                 }                
             }
         }
+    }
+    
+    public function logSQL($sqlString){
+        //return;
+        $myFile = "logfile.html";
+        $fh = fopen($myFile, 'a') or die("can't open file");
+        fwrite($fh, $sqlString . "</br>");
+        fclose($fh);
     }
     
     public function read($numeTabel, $coloaneNecesare, $filtre, $searchString, $limit){
@@ -88,6 +97,7 @@ class GetFromDb
         $sqlString .=" FROM ".$numeTabel;
         $sqlString .=" WHERE hidden=0 ";
         // Cum gaseste randurile valide
+        $this->logSQL(" Number of filters: ".count($filtre));;
         if(count($filtre)>0)
         {
             
@@ -123,7 +133,8 @@ class GetFromDb
         $sqlString.=" LIMIT ";        
         $sqlString.= $limit;
         
-        
+        $this->logSQL("READ");
+        $this->logSQL($sqlString);
         
         if ($this->_myDebug) { echo ( get_class($this)." SQL = ". $sqlString."<br>"); }
         $result = mysqli_query($this->con, $sqlString);

@@ -45,7 +45,7 @@ return {};
                 "data" : 
                 {
                     "columns": [ "id", "nume", "localitate", "judet", "email", "telefon", "utilizator_id" ], 
-                    "filters" : {  }, 
+                    "filters" : null, 
                     "searchString" : "",
                     "limit" : 10,
                     "skip" : 0} 
@@ -61,7 +61,10 @@ return {};
 			dataForServer.data.searchString = searchValue;
 		}
 	
-    dataForServer.data.filters = getPostAsJson();
+        if (dataForServer.data.filters == null)
+        {
+            dataForServer.data.filters = getPostAsJson();
+        }
     
     $.ajax({
     data: dataForServer,
@@ -70,24 +73,59 @@ return {};
     dataType: "json"
     })
    .done(function(rezultat) { 
-        $('#myTable').empty(); 
+        $('#myTable').empty();
+        $('#myTable').append($('\
+        <tr>\
+          <th>Nume Firma</th>\
+          <th>Localitate</th>\
+          <th>Judet</th>\
+		  <th>Email</th>\
+		  <th>Telefon</th>\
+		  <th>Agent</th>\
+		  <th></th>\
+        </tr>'));
+        
         $.each(rezultat, function(i) {   // Pentru fiecare rand la pozitia i
         tRow = $('<tr>');
             $.each(rezultat[i], function(j) { // Pentru fiecare celula j din randul i
                 var cell_ID = "cell_"+i+"_"+j;
+                var continutCelulaTabel;
                 switch (j)
                     {
+                  
                     case 1:
-
+                        var continut = '<a href="detalii-client.php?get='+rezultat[i][0]+'">'+rezultat[i][j]+'</a>';
+                        continutCelulaTabel = $(continut);
                     break;
                     
-                    case 6:
-                        getUtilizatorNume("Utilizator", rezultat[i][j], cell_ID);
+                    case 3:
+                        var continut = '<a href="#">'+rezultat[i][j]+'</a>';
+                        continutCelulaTabel = $(continut);
+                        continutCelulaTabel.click(function(){
+                            var filters = { "judet" : rezultat[i][j] };
+                            dataForServer.data.filters = filters;
+                            readTable("firma");
+                        });
                     break;
+                    
+                    case 4:
+                    if (rezultat[i][j] != null){
+                        var continutCelulaTabel = $('<a href="mailto:'+rezultat[i][j]+'">'+rezultat[i][j]+'</a>');
+                        }
+                        break;
+                    
+                    case 6:
+                       getUtilizatorNume("Utilizator", rezultat[i][j], cell_ID);
+                    break;
+                    
+                    default:
+                        continutCelulaTabel = rezultat[i][j];
+                    break;      
                     }
-                tCell = $('<td id='+cell_ID+'>').html(rezultat[i][j]);
+                tCell = $('<td id='+cell_ID+'>').html(continutCelulaTabel);
 
-                tRow.append(tCell);
+               if (j != 0){tRow.append(tCell);}
+             
             });
             $('#myTable').append(tRow);
         });
@@ -99,11 +137,13 @@ return {};
    {
        $.ajax({
         type: "POST",
-        url: "../Controller/Controller.php?get="+id+"&entity="+numeTabel,
+        url: "../Controller/Controller.php?&get="+id+"&entity="+numeTabel,
         dataType: "json"
         })
         .done(function(rezultat) { 
            $('#'+destination).html(rezultat.nume);
+       }).fail(function(rezultat) { 
+          // $('#'+destination).html(rezultat.nume);
        });
    }
    </script>
