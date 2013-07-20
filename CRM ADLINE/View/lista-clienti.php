@@ -8,6 +8,8 @@ include 'stats.php';
    <!-- FUNCTION READ -->
 <script>
 
+
+
 // CITESTE PARAMETRUL DACA VINE
 
 function getPostAsJson()
@@ -44,20 +46,22 @@ return {};
                 {
                     "columns": [ "id", "nume", "localitate", "judet", "email", "telefon", "utilizator_id" ], 
                     "filters" : {  }, 
+                    "searchString" : "",
                     "limit" : 10,
                     "skip" : 0} 
                 }
 
 
     function readTable(numeleTabeluluiDeInterogat)
-    {
+    { 
     
-    
-        dataForServer.data.filters = getPostAsJson();
-   
-
-
-
+        var searchValue = $('#searchString').val();
+		if (searchValue != "")
+		{
+			dataForServer.data.searchString = searchValue;
+		}
+	
+    dataForServer.data.filters = getPostAsJson();
     
     $.ajax({
     data: dataForServer,
@@ -66,9 +70,10 @@ return {};
     dataType: "json"
     })
    .done(function(rezultat) { 
-        $.each(rezultat, function(i) {
-            tRow = $('<tr>');
-            $.each(rezultat[i], function(j) {
+        $('#myTable').empty(); 
+        $.each(rezultat, function(i) {   // Pentru fiecare rand la pozitia i
+        tRow = $('<tr>');
+            $.each(rezultat[i], function(j) { // Pentru fiecare celula j din randul i
                 var cell_ID = "cell_"+i+"_"+j;
                 switch (j)
                     {
@@ -77,7 +82,7 @@ return {};
                     break;
                     
                     case 6:
-                    getUtilizatorNume("Utilizator", rezultat[i][j], cell_ID);
+                        getUtilizatorNume("Utilizator", rezultat[i][j], cell_ID);
                     break;
                     }
                 tCell = $('<td id='+cell_ID+'>').html(rezultat[i][j]);
@@ -114,8 +119,8 @@ return {};
     <button class="btn btn-primary" onclick="window.location.href='editare-client.php'"><i class="icon-plus"></i> Adauga Client</button>
 	       <button class="btn">Exporta</button>
 	 <form style="display: inline;" >
-     <input type="text" placeholder="cauta in coloanele tabelului" class="cauta">
-    <button class="btn" type="button"><i class="icon-search"></i> Cauta</button>
+     <input type="text" id="searchString" placeholder="cauta in coloanele tabelului" class="cauta">
+    <button class="btn" id="searchStringCommand" type="button"><i class="icon-search"></i> Cauta</button>
 	 </form>
 	 
 	 	 <form style="display: inline;" >
@@ -185,6 +190,16 @@ return {};
 <div id='confirmationDialog'></div>
 
    <script>
+   $('#searchStringCommand').click(function(){
+        readTable("firma");
+   });
+      $('#searchString').keypress(function(e) {
+      
+    if(e.which == 13) {
+    e.preventDefault();
+        readTable("firma");
+    }
+});
    readTable("firma");
    </script>
                     

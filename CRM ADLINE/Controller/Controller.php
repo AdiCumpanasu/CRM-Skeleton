@@ -53,7 +53,7 @@ class Controller {
 		// Not yet implemented
 	}
 
-	/**
+	/** 
      * @access public
      */
 	public function listeaza_Interactiune() {
@@ -87,8 +87,13 @@ class Controller {
         $coloaneNecesare = $_POST["data"]["columns"];
         if ($this->_myDebug) {print_r ($_POST);}
         $filtre = $_POST["data"]["filters"];
+        $searchString = null;
+        if(isset($_POST["data"]["searchString"]))
+        {
+            $searchString = $_POST["data"]["searchString"];
+        }
         $limit = 10;
-		$this->colectieCurenta = $this->dbGet->read($numeTabel, $coloaneNecesare, $filtre, $limit);
+		$this->colectieCurenta = $this->dbGet->read($numeTabel, $coloaneNecesare, $filtre, $searchString, $limit);
     }
 
 

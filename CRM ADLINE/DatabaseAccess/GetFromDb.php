@@ -63,7 +63,7 @@ class GetFromDb
         }
     }
     
-    public function read($numeTabel, $coloaneNecesare, $filtre, $limit){
+    public function read($numeTabel, $coloaneNecesare, $filtre, $searchString, $limit){
         // Trace
         if ($this->_myDebug) { echo get_class($this)." Citeste tot tabelul ".$numeTabel. "<br>"; }
         
@@ -99,7 +99,26 @@ class GetFromDb
             }
           
             $sqlString .=$sqlFiltre;
+        } 
+        $searchClause = "";
+        if ($searchString != null)
+        {
+            if(count($coloaneNecesare)>0)
+            {
+                
+                $numeColoane ;
+                $filterString = "";
+                foreach ($coloaneNecesare as $numeColoana)
+                {
+                    $filterString .= "OR  `".$numeColoana."` LIKE '%".$searchString."%' "; 
+                }
+                if ($filterString != "")
+                {
+                    $searchClause = " AND ( ".substr($filterString, 3)." ) ";
+                }
+            }
         }
+        $sqlString.=$searchClause;      
         // Limit
         $sqlString.=" LIMIT ";        
         $sqlString.= $limit;
