@@ -1,0 +1,134 @@
+
+a.editLink {
+display: inline;
+padding-left: 7px;
+margin: 0px;
+border: 0px;
+color: #0088cc;
+font-size:0.85em;
+font-style: italic;
+}
+a.editLink:hover {
+display: inline;
+padding-left: 7px;
+margin: 0px;
+border: 0px;
+color: #005580;
+font-size:0.85em;
+font-style: italic;
+}
+
+.block-heading a.myDivLink {
+display: inline;
+padding-left: 7px;
+margin: 0px;
+border: 0px;
+color: #0088cc;
+font-size:11px;
+font-style: italic;
+background: none;
+}
+
+.block-heading a.myDivLink:hover {
+display: inline;
+padding-left: 7px;
+margin: 0px;
+border: 0px;
+color: #005580;
+font-size:11px;
+font-style: italic;
+background: none;
+}
+
+span.adaugatDe {
+display: block;
+padding-left: 10px;
+margin: 0px;
+border: 0px;
+color: #bbbbbb;
+font-size:11px;
+font-style: italic;
+}
+ 
+ 
+a.fisierLink {
+display: inline;
+margin: 0px;
+border: 0px;
+color: #000000;
+font-size:1em;
+font-weight: bold;
+}
+a.fisierLink:hover {
+display: inline;
+margin: 0px;
+border: 0px;
+color: #0088cc;;
+font-size:1em;
+font-weight: bold;
+}
+.pull-right-adline {
+  float: right;
+  text-align: right;
+}
+
+.header .titlu {
+  font-family: georgia, serif;
+  font-style: italic;
+  font-size: 1.1em;
+  padding-top: 6px;
+  padding-left: 7px;
+}
+
+.signin_left{
+display: block;
+margin-top: 5em;
+float: left;
+width: 400px;
+}
+
+input.cauta{
+  margin-bottom: 0px;
+  margin-left: 25px;
+
+}
+
+input.input-xxlarge{
+  width: 600px;
+}
+
+input.uppercase {
+    text-transform: uppercase;
+    color: #838482;
+}
+
+input.lowercase {
+    text-transform: lowercase;
+    color: #838482;
+    
+}
+
+input.capitalize {
+    text-transform: capitalize;
+    color: #838482;
+}
+
+input.myRequired {
+    color: #a91625;
+}
+
+.stanga{
+display: inline;
+float: left;
+margin-right: 7px;
+font-weight: bold;
+font-size: 0.9em;
+}
+
+.dreapta{
+display: inline;
+float: right;
+margin-right: 7px;
+font-weight: bold;
+font-size: 0.9em;
+}
