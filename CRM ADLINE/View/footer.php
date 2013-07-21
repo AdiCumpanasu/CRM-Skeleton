@@ -15,6 +15,7 @@
 						
                         <p>&copy; 2013 <a href="http://www.adlinesolutions.ro" target="_blank"><b>Ad Line Solutions</b></a><br>solutii complete pentru productia publicitara</p>
                     </i>
+                    <a href="../Controller/logfile.html" target="_blank">log file</a>
 					</footer>
                     
             </div>
@@ -30,6 +31,8 @@
             $('.demo-cancel-click').click(function(){return false;});
         });
     </script>
+    
+    
     
   </body>
 </html>

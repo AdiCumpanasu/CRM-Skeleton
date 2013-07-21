@@ -2,21 +2,13 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Name>CRM_ADLINE</Name>
     <ProjectGuid>8ce80538-2eb9-49fb-a8f8-a4f1e7c35e6c</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>CRM_ADLINE</RootNamespace>
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>CRM ADLINE</AssemblyName>
-    <IISProjectUrl>http://localhost:56985/</IISProjectUrl>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
-    <IncludeDebugInformation>true</IncludeDebugInformation>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
-    <IncludeDebugInformation>false</IncludeDebugInformation>
-  </PropertyGroup>
+ </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.php">
       <SubType>Code</SubType>

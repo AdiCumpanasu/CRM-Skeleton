@@ -15,6 +15,37 @@
 
     <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 
+<script>
+    function getPostAsJson()
+    {    
+        var url = '{"'+location.search.replace('?', '').replace(/&/g, '", "').replace(/=/g, '" : "')+'"}';
+    // var url = location.search.replace('?', '');
+    // url = url.replace(/&/g, '", "');
+    // url = url.replace(/=/g, '" : "');
+    // url = '{"'+url+'"}';
+    if(url.length > 6)
+    {
+    return JSON.parse(url);
+    }
+    else
+    return {};
+
+    }
+    
+    function getPostValueByName(parameterName)
+    {    
+        var valoareParametru = location.search.replace('?', '');
+        var parameters = valoareParametru.split('&');
+        for(i=0; i< parameters.length; i++)
+        {
+            if(parameters[i].indexOf(parameterName+"=") == 0)
+            {
+                return parameters[i].substring(parameterName.length+1);
+            }
+        }
+    }
+</script>
+    
     <!-- Demo page code -->
 
     <style type="text/css">

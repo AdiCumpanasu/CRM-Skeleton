@@ -6,31 +6,7 @@ include 'stats.php';
 ?>
   
    <!-- FUNCTION READ -->
-<script>
 
-
-
-// CITESTE PARAMETRUL DACA VINE
-
-function getPostAsJson()
-{
-    
-var url = '{"'+location.search.replace('?', '').replace(/&/g, '", "').replace(/=/g, '" : "')+'"}';
-
-
-// var url = location.search.replace('?', '');
-// url = url.replace(/&/g, '", "');
-// url = url.replace(/=/g, '" : "');
-// url = '{"'+url+'"}';
-if(url.length > 6)
-{
-return JSON.parse(url);
-}
-else
-return {};
-
-}
-</script>
 <script>
 
 

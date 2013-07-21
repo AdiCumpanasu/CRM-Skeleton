@@ -31,54 +31,6 @@ class Controller {
         
         $this->dbGet = new GetFromDb();
     }
-    
-
-	public function creeaza() {
-		// Not yet implemented
-	}
-
-	
-
-	/**
-     * @access public
-     */
-	public function actualizeaza() {
-		// Not yet implemented
-	}
-
-	/**
-     * @access public
-     */
-	public function listeaza_echipamente() {
-		// Not yet implemented
-	}
-
-	/** 
-     * @access public
-     */
-	public function listeaza_Interactiune() {
-		// Not yet implemented
-	}
-
-	/**
-     * @access public
-     */
-	public function listeaza_persoaneContact() {
-		// Not yet implemented
-	}
-
-	/**
-     * @access public
-     */
-	public function listeaza_fisiere() {
-		// Not yet implemented
-	}
-
-
-	public function listeaza_activitati() {
-		// Not yet implemented
-	}
-
 
 	public function read($numeTabel) {
         // Trace
@@ -98,26 +50,45 @@ class Controller {
     }
 
 
-	public function get($numeTabel, $id) {
+	public function save($numeTabel, $id) {
         // Trace
-        $this->dbGet->logSQL("CONTROLLER : GET");
-        if ($this->_myDebug) { echo get_class($this)." get<br>"; }
-        if ($this->_myDebug) { echo get_class($this)." ".$numeTabel."<br>"; }
-        //switch($numeTabel)
-        //{
-        //    case "Utilizator":
-		        $this->obiectCurent = new Utilizator($id);
-        //        break;
-        //}
-        if ($this->_myDebug) { echo get_class($this)." JSON = ".json_encode($this->obiectCurent)."<br>"; }
-        $this->dbGet->get($this->obiectCurent);
-    }
-    
-      
-	public function arhivare($numeTabel, $id) {
-        // Trace
-        if ($this->_myDebug) { echo get_class($this)." arhivare<br>"; }
-        if ($this->_myDebug) { echo get_class($this)." ".$numeTabel."<br>"; }
+        $this->dbGet->logSQL("Save");
+        $this->setObjectType($numeTabel, $id);
+        $properties = get_object_vars($this->obiectCurent);
+        foreach ($properties as $propertyName => $propertyValue)
+        {
+            if (! is_array($this->obiectCurent->{$propertyName}))
+            {
+                if(isset($_POST['data'][$propertyName]))
+                {
+                    $this->obiectCurent->{$propertyName} = $_POST['data'][$propertyName];
+                }
+            }
+       }
+        
+$newValues = "";
+$properties = get_object_vars($_POST["data"]);
+foreach ($properties as $propertyName => $propertyValue)
+                {
+                    //if (! is_array($entity->{$propertyName}))
+                        {
+$this->setObjectType->{$propertyName} = $propertyValue;
+
+}
+}
+if ($id<0){
+$this->dbGet->logSQL("Object does not exist. Create!");
+	$this->dbGet->insert($this->obiectCurent);
+}
+else
+{
+$this->dbGet->logSQL("Object exist. Update!");
+	$this->dbGet->update($this->obiectCurent);
+}
+}
+
+private function setObjectType($numeTabel, $id)
+{
         switch($numeTabel)
             {
             case "Utilizator":
@@ -143,6 +114,22 @@ class Controller {
                 break;
                 
             }
+}
+
+	public function get($numeTabel, $id) {
+        // Trace
+        $this->dbGet->logSQL("GET EntityName: ".$numeTabel.", id: ".$id);
+        $this->setObjectType($numeTabel, $id);
+        if ($this->_myDebug) { echo get_class($this)." JSON = ".json_encode($this->obiectCurent)."<br>"; }
+        $this->dbGet->get($this->obiectCurent);
+    }
+    
+      
+	public function arhivare($numeTabel, $id) {
+        // Trace
+        if ($this->_myDebug) { echo get_class($this)." arhivare<br>"; }
+        if ($this->_myDebug) { echo get_class($this)." ".$numeTabel."<br>"; }
+        $this->setObjectType($numeTabel, $id);
         if ($this->_myDebug) { echo get_class($this)." JSON = ".json_encode($this->obiectCurent)."<br>"; }
         $this->dbGet->arhiveaza($this->obiectCurent);
 		
@@ -166,5 +153,13 @@ if(isset($_GET['arhivare']))
     $firmaController->arhivare($_GET['entity'], $_GET['arhivare']);
     echo (json_encode($firmaController->obiectCurent));
 }
+
+else 
+if(isset($_GET['save']))
+{
+    $firmaController->save($_GET['entity'], $_GET['save']);
+    echo (json_encode($firmaController->obiectCurent));
+}
+
 
 ?>

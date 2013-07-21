@@ -36,14 +36,74 @@ class GetFromDb
         
         
     }
+
+    public function update($entity){
+        if ($this->_myDebug) { echo get_class($this)." Actualizeaza elementul ".$entity->id." of type: ".get_class($entity). "<br>"; }
+
+$newValues = "";
+$properties = get_object_vars($entity);
+                $this->logSQL("get from db inainte de foreach");
+                $properties = get_object_vars($entity);
+foreach ($properties as $propertyName => $propertyValue)
+                {
+                    if (! is_array($entity->{$propertyName}))
+                    if ($propertyName != "data" && $propertyName != "id")
+                        {
+					$newValues.=" ,`".$propertyName ."` = '".$propertyValue."' ";
+					}
+				}
+if (strlen($newValues) > 2){$newValues = substr($newValues,  2); }
+
+$query = "UPDATE ".get_class($entity)." SET ".$newValues." WHERE `id`=".$entity->id;
+
+$this->logSQL($entity->id);
+$this->logSQL($query);
+        $result = mysqli_query($this->con, $query);
+        
+        
+    }
+    
+    public function insert($entity){
+        if ($this->_myDebug) { echo get_class($this)." Creaza elementul ".$entity->id." of type: ".get_class($entity). "<br>"; }
+
+$objectColumns  = "";
+$objectValues = "";
+$properties = get_object_vars($entity);
+                
+foreach ($properties as $propertyName => $propertyValue)
+                {
+                    if (! is_array($entity->{$propertyName}))
+                        {
+                        // (!($propertyName == "data" || $propertyName == "id")){
+					    if ($propertyName != "data" && $propertyName != "id"){
+					        $objectColumns.=", `".$propertyName ."` ";
+					        $objectValues.=", '".$propertyValue."' ";
+                        }       
+					}
+				}
+if (strlen($objectColumns) > 1){ $objectColumns= substr($objectColumns, 1); }
+if (strlen($objectValues) > 1){ $objectValues= substr($objectValues, 1); }
+
+$query = "INSERT INTO ".get_class($entity)." ( " .$objectColumns. ") VALUES ( " . $objectValues . " ) "; 
+    // Trace
+        if ($this->_myDebug) { echo get_class($this)." Citeste elementul ".$entity->id." of type: ".get_class($entity). "<br>"; }
+        $this->logSQL("GET");
+        $this->logSQL($query);  
+        
+        
+        $result = mysqli_query($this->con, $query);
+    
+        
+    }
     
     public function get($entity){
         // Trace
         if ($this->_myDebug) { echo get_class($this)." Citeste elementul ".$entity->id." of type: ".get_class($entity). "<br>"; }
-        $this->logSQL("GET");
+        $this->logSQL("GET: ".$entity->id);
+        $sqlString = "SELECT * FROM ".get_class($entity)." WHERE id=".$entity->id;
         $this->logSQL($sqlString);
         // Interogare
-        $result = mysqli_query($this->con,"SELECT * FROM ".get_class($entity)." WHERE id=".$entity->id);
+        $result = mysqli_query($this->con, $sqlString);
         if ($result){
             while($row = mysqli_fetch_array($result))
             {

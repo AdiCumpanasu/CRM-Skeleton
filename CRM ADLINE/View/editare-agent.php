@@ -9,6 +9,27 @@ include 'stats.php';
 
 // Declare data structure for save
 
+
+
+function get()
+{
+    var entityId = getPostValueByName('id');
+    if (entityId = "undefined") { return; }
+    $.ajax({
+    type: "GET",
+    url: "..\\Controller\\Controller.php?entity=Utilizator&get="+entityId,
+    dataType: "json"
+    })
+   .done(function(rezultat) { 
+        for (var key in rezultat) {
+            if (rezultat.hasOwnProperty(key)) {
+                var inputField = $('#'+key);
+                inputField.val(rezultat[key]);
+            }
+        }
+   });
+}
+
 var dateDeTrimis = { 
                     "user" : { 
                                 "ID" : 22, 
@@ -27,28 +48,28 @@ var dateDeTrimis = {
 
 // Perform save data
                    
-function SaveData(entityName, entityId)
+function SaveData(entityName)
 {
     // Prepare data for save
     dateDeTrimis.data.id = $('#id').val();
     dateDeTrimis.data.username = $('#username').val();
     dateDeTrimis.data.nume = $('#nume').val();
-    dateDeTrimis.data.telefon = $('#nume').val();
-    dateDeTrimis.data.email = $('#nume').val();
-    dateDeTrimis.data.password = $('#nume').val();
+    dateDeTrimis.data.telefon = $('#telefon').val();
+    dateDeTrimis.data.email = $('#email').val();
+    dateDeTrimis.data.password = $('#password').val();
     dateDeTrimis.data.tip = $('#tip').val();
 
     // Make POST request
         $.ajax({
         data: dateDeTrimis,
         type: "POST",
-        url: "../Controller/Controller.php?save="+entityId+"&entity="+entityName,
+        url: "../Controller/Controller.php?save="+dateDeTrimis.data.id+"&entity="+entityName,
         dataType: "json"
         })
         .done(function(rezultat) { 
-           window.alert("Saved "+ agentId);
+           //window.alert("Saved "+ agentId);
        }).fail(function(rezultat) { 
-           window.alert("Error for entity: "+ entityName + ", id:" + agentId);
+           //window.alert("Error for entity: "+ entityName + ", id:" + dateDeTrimis.data.id);
        });
 }
 </script>
@@ -57,33 +78,37 @@ function SaveData(entityName, entityId)
             <div class="row-fluid">
                     
 <div class="btn-toolbar">
-    <button id="saveData" class="btn btn-primary"><i class="icon-save"></i> Salveaza</button>
+    <button id="saveData" class="btn btn-primary" onclick="SaveData('Utilizator')"><i class="icon-save"></i> Salveaza</button>
   <div class="btn-group">
   </div>
 </div>
 <div class="well">
 
+        <input type="hidden" value="-1"  id="id" />
  <table>
     <form>
+    	
+        
+
 	<tr>
         <td style="width: 130px;"><label class="stanga" for="username">Username</label></td>
-        <td ><input type="text" value="roxana"  id="username" class="input-xlarge lowercase"></td>
+        <td ><input type="text" value=""  id="username" class="input-xlarge lowercase"></td>
 	</tr>
 	<tr>
         <td><label class="stanga" for="nume">Nume</label></td>
-        <td><input type="text" value="Roxana Mirescu"  id="nume" class="input-xlarge capitalize"></td>
+        <td><input type="text" value=""  id="nume" class="input-xlarge capitalize"></td>
 	</tr>
 	<tr>
         <td><label class="stanga" for="telefon">Telefon</label></td>
-        <td><input type="text" value="0728 800345"  id="telefon" class="input-xlarge uppercase"></td>
+        <td><input type="text" value=""  id="telefon" class="input-xlarge uppercase"></td>
 	</tr>
 	<tr>
         <td><label class="stanga" for="email">Email</label></td>
-        <td><input type="text" value="roxana@adlinesolutions.ro"  id="email" class="input-xlarge lowercase"></td>
+        <td><input type="text" value=""  id="email" class="input-xlarge lowercase"></td>
 	</tr>
 		<tr>
         <td><label class="stanga" for="password">Parola</label></td>
-        <td><input type="text" value="*******"  id="password" class="input-xlarge"></td>
+        <td><input type="password" value=""  id="password" class="input-xlarge"></td>
 	</tr>
 		<tr>
 		<td>
@@ -91,7 +116,7 @@ function SaveData(entityName, entityId)
 		</td>
 		<td>
         <select id="tip" class="input-xlarge" style="width: 244px;">
-          <option value="agent">agent</option>
+          <option value="agent" selected>agent</option>
 		  <option value="inginer_service">inginer service</option>
           <option value="admin">admin</option>
 		</select>
@@ -141,7 +166,9 @@ function SaveData(entityName, entityId)
 </div>
 
 
-                    
+<script>
+    get();
+</script>                  
 <?php 
 include 'footer.php';
 ?>

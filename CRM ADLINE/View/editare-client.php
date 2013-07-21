@@ -5,6 +5,50 @@ include 'sidebar.php';
 include 'stats.php';
 ?>
 
+<script>
+
+// Declare data structure for save
+
+var dateDeTrimis = { 
+                    "user" : { 
+                                "ID" : 22, 
+                                "token": "hY3j"
+                             }, 
+                    "data" : {
+                                "id" : null, 
+nume 
+                                cod_fiscal
+                             }
+                   };  // An ID = -1 will force an insert, otherwise it is update
+
+// Perform save data
+                   
+function SaveData(entityName, entityId)
+{
+    // Prepare data for save
+    dateDeTrimis.data.id = $('#id').val();
+    dateDeTrimis.data.username = $('#username').val();
+    dateDeTrimis.data.nume = $('#nume').val();
+    dateDeTrimis.data.telefon = $('#nume').val();
+    dateDeTrimis.data.email = $('#nume').val();
+    dateDeTrimis.data.password = $('#nume').val();
+    dateDeTrimis.data.tip = $('#tip').val();
+
+    // Make POST request
+        $.ajax({
+        data: dateDeTrimis,
+        type: "POST",
+        url: "../Controller/Controller.php?save="+entityId+"&entity="+entityName,
+        dataType: "json"
+        })
+        .done(function(rezultat) { 
+           window.alert("Saved "+ agentId);
+       }).fail(function(rezultat) { 
+           window.alert("Error for entity: "+ entityName + ", id:" + agentId);
+       });
+}
+</script>
+
         <div class="container-fluid">
             <div class="row-fluid">
                     

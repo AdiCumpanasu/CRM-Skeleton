@@ -32,22 +32,12 @@ include 'stats.php';
         window.alert("send email to "+emailAddress);
     }
     
-    // cand apesi pe agent
-    function displayFirmeleAgent(agentId)
-    {
-        window.alert("Display Firmele lui agent "+ agentId);
-    }
-    
-    // cand apesi pe editare
-    function displayAgent(agentId)
-    {
-        window.alert("Display agent "+ agentId);
-    }
     
     // cand apesi pe editare
     function editAgent(agentId)
     {
-        window.alert("Edit agent "+ agentId);
+        $('#elementId').val(agentId);
+        $('#editForm').submit();
     }
     
     // cand apesi pe stergere
@@ -116,11 +106,14 @@ include 'stats.php';
                         var randTabel = $('<tr>');
                         randTabel.attr("id","rand"+i);
                         randTabel.click(function(){ randCurentId = randTabel.attr("id"); randDbId = rezultate[i][0];});
-                        
-                        randTabel.append($('<td id="edit_element_"><a href=""><i class="icon-pencil"></i></a></td>"'));
-                        $('#edit_element_').click(function(){ 
+                        var pencilCell =  $('<td>');
+                        var pencil =  $('<i class="icon-pencil">');
+                        pencilCell.append(pencil);
+                        pencilCell.click(function(){ 
                             editAgent(rezultate[i][0]);
                         });
+                        randTabel.append(pencilCell);
+                        
                         var myTd = $('<td>');
                         myTd.append($('<a href="#myModal" role="button" data-toggle="modal"><i class="icon-trash"></i></a>'));
                         myTd.click(function(){ showModalDialog();});
@@ -167,7 +160,7 @@ include 'stats.php';
                     
 <div class="btn-toolbar">
     <button class="btn btn-primary" onclick="window.location.href='editare-agent.php'"><i class="icon-plus"></i> Adauga Agent</button>
-	 </form>
+	 <form id='editForm' action='editare-agent.php' method='get'><input type='hidden' name='id' id='elementId'/></form>
 
 	
   <div class="btn-group">
