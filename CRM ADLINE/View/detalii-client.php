@@ -127,7 +127,7 @@ SIBIU, ROMANIA</td>
             </table>
         </div>
     </div>
-        <div class="block span7">
+        <div class="block span7 pull-right">
         <p class="block-heading">Descriere <a class="myDivLink" href="">modifica</a></p>         
         <div class="block-body">
             <p>Cumpara mult autocolant de la noi pentru ca sunt firma de casa a primariei din Constanta. Lucreaza mai mult cu Verla. Mai are si un magazin de calculatoare.</p>
@@ -135,7 +135,7 @@ SIBIU, ROMANIA</td>
         </div>
     </div>
 
-    <div class="block span7">
+    <div class="block span7 pull-right">
         <p class="block-heading">Echipamente <a class="myDivLink" href="">adauga echipament</a></p>         
         <div class="block-body">
 				<!-- REZULTAT  -->
@@ -155,7 +155,7 @@ SIBIU, ROMANIA</td>
 
 
 
-           <div class="block span7">
+           <div class="block span7 pull-right">
         <p class="block-heading">Fisiere <a class="myDivLink" href="">incarca fisier</a></p>         
         <div class="block-body">
 				<!-- REZULTAT  -->
@@ -165,11 +165,11 @@ SIBIU, ROMANIA</td>
 
         </div>
       </div>
-              <div class="block span7">
+              <div class="block span7 pull-right">
         <p class="block-heading">Interactiune <a class="myDivLink" href="">adauga</a></p>         
         <div class="block-body">
 		<!-- REZULTAT  -->
-            <b><a href=""> Alina</a> - <a href="">05/12/2013 12:33</a></b> <p>am mai discutat cu el si i-am sugerat sa printeze si uni daca pierde albastru la fonta, si a zis ca crede ca e din print pt ca pierde in acelasi loc oricum l-ar intoarce.</p>
+            <span class="adaugatDe"><a href="">Alina - <a href="">05/12/2013 12:33</a></span> <p>am mai discutat cu el si i-am sugerat sa printeze si uni daca pierde albastru la fonta, si a zis ca crede ca e din print pt ca pierde in acelasi loc oricum l-ar intoarce.</p>
 		<!-- REZULTAT  -->
         </div>
 

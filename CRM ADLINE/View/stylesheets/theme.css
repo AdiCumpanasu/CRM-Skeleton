@@ -12,8 +12,8 @@
 -----------------------------------------------------*/
 /*Standard Elements*/
 body {
-  background: #eee;
-  background-image:url('../images/bg_mathematics.png');
+  background: #ffffff;
+  // background-image:url('../images/background.png');
 
   background-position: initial initial;
   background-repeat: initial initial;
@@ -24,6 +24,7 @@ body {
 }
 a:hover {
   text-decoration: none;
+  color: black;
 }
 h1 {
   margin-top: 0px;
@@ -53,13 +54,13 @@ hr {
   text-shadow: none;
 }
 .navbar .navbar-inner {
-  background: #69010e;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9f0817), color-stop(1, #69010e));
+  background: #485060;
+/*   background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #9f0817), color-stop(1, #69010e));
   background: -ms-linear-gradient(bottom, #9f0817, #69010e);
   background: -moz-linear-gradient(center bottom, #9f0817 0%, #69010e 100%);
   background: -o-linear-gradient(bottom, #9f0817, #69010e);
   filter: progid:dximagetransform.microsoft.gradient(startColorStr='#9f0817', EndColorStr='#69010e');
-  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#69010e',EndColorStr='#9f0817')";
+  -ms-filter: "progid:DXImageTransform.Microsoft.gradient(startColorStr='#69010e',EndColorStr='#9f0817')"; */
   padding: 0em 1em;
   margin: 0px;
   -webkit-border-radius: 0px;
@@ -78,6 +79,7 @@ hr {
 .navbar .nav > li > a {
   color: #fff;
   text-shadow: none;
+
 }
 .navbar .nav > li:hover {
   background-color: #444;
@@ -98,15 +100,15 @@ hr {
   position: relative;
   min-height: 800px;
   background: #fff;
-  margin-left: 170px;
+  margin-left: 155px;
   border-left: 1px solid #cccccc;
-  border-left: 3px solid #999999;
+
 }
 .header {
   background: #ffffff;
   border-bottom: 1px solid #cccccc;
   border-top: 1px solid #ffffff;
-  border-left: 1px solid #ffffff;
+
   padding: 0em 1.25em;
 }
 .header h1 {
@@ -131,7 +133,7 @@ hr {
   background: #f3f0f0;
   border-bottom: 1px solid #aaa;
   border-top: 1px solid #fafafa;
-  border-left: 1px solid #fff;
+  
   margin-bottom: .5em;
 }
 .page-content {
@@ -195,7 +197,7 @@ footer hr {
   text-shadow: none;
   text-transform: none;
   font-weight: bold;
-  font-size: .85em;
+  font-size: .95em;
   line-height: 3em;
 }
 .block-heading .block-icon {
@@ -268,7 +270,7 @@ a.block-heading:hover,
 }
 /*Navigation*/
 .sidebar-nav {
-  width: 170px;
+  width: 150px;
   position: absolute;
   float: left;
   border-top: none;
@@ -277,20 +279,14 @@ a.block-heading:hover,
   padding-top: 5px;
 }
 .sidebar-nav .nav-header {
-  border-top: 1px solid #ffffff;
-  border-bottom: 1px solid #c8c8cb;
-  border-left: none;
-  color: #333;
-  display: block;
-  background: #f9f9f9;
-  font-weight: normal;
-  font-size: 1em;
-  line-height: 2.5em;
-  padding: 0em .25em;
-  margin-bottom: 0px;
-  text-shadow: none;
-  text-transform: none;
-  /*Change the arrow direction if the item is collapsed*/
+height: 40px;
+background: url(../images/widget_header.png) no-repeat;
+letter-spacing: normal;
+font-variant: normal;
+font-size: 0.9em;
+line-height: 47px;
+color: #252f43;
+
 
 }
 .sidebar-nav .nav-header .label {
@@ -300,7 +296,7 @@ a.block-heading:hover,
   line-height: 1.5em;
 }
 .sidebar-nav .nav-header:hover {
-  background: #edede2;
+
 
 }
 .sidebar-nav .nav-header.collapsed .icon-chevron-up::before {
@@ -322,11 +318,11 @@ a.block-heading:hover,
   border: 0px;
 }
 .sidebar-nav .nav-list  > li > a:hover {
-  background: #e0e0e8;
+color: #964da4;
 }
 .sidebar-nav .nav-list  > .active > a,
 .sidebar-nav .nav-list  > .active > a:hover {
-  background: #d2d2dd;
+
   color: #555;
   text-shadow: none;
 }
@@ -339,8 +335,9 @@ padding-left: 7px;
 margin: 0px;
 border: 0px;
 color: #005580;
-font-size:0.85em;
-font-style: italic;
+font-size:0.93em;
+
+
 }
 .sidebar-nav .nav-list.collapse.in {
   border-bottom: 1px solid #ccc;

@@ -178,16 +178,7 @@ include 'stats.php';
       </tbody-->
     </table>
 </div>
-<div class="pagination">
-    <ul>
-        <li><a href="#">Precedenta</a></li>
-        <li><a href="#">1</a></li>
-        <li><a href="#">2</a></li>
-        <li><a href="#">3</a></li>
-        <li><a href="#">4</a></li>
-        <li><a href="#">Urmatoarea</a></li>
-    </ul>
-</div>
+
 
 <div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-header">

@@ -16,7 +16,6 @@ border: 0px;
 color: #005580;
 font-size:0.90em;
 font-style: italic;
-text-decoration: underline;
 }
 
 .block-heading a.myDivLink {
@@ -39,7 +38,6 @@ color: #005580;
 font-size:11px;
 font-style: italic;
 background: none;
-text-decoration: underline;
 }
 
 span.adaugatDe {
@@ -48,13 +46,10 @@ padding-left: 10px;
 margin: 0px;
 border: 0px;
 color: #bbbbbb;
-font-size:0.87em;;
+font-size:11px;
 font-style: italic;
 }
  
-  .adaugatDe a:hover{
- text-decoration: underline;
- }
  
 a.fisierLink {
 display: inline;
@@ -71,7 +66,6 @@ border: 0px;
 color: #0088cc;;
 font-size:1em;
 font-weight: bold;
-text-decoration: underline;
 }
 .pull-right-adline {
   float: right;
@@ -188,15 +182,13 @@ font-size: 1.4em;
 a.firmaActiv{
 font-weight: bold;
 font-size: 1.3em;
-color: #000000;
+color: #005580;
 }
 
 a.firmaActiv:hover{
 font-weight: bold;
 font-size: 1.3em;
-
 color: #000000;
-text-decoration: underline;
 }
 
 .imgActiv{

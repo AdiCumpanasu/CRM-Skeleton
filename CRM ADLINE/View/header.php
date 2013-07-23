@@ -12,6 +12,8 @@
 	<link rel="stylesheet" type="text/css" href="lib/bootstrap/css/adline.css">
     <link rel="stylesheet" type="text/css" href="stylesheets/theme.css">
     <link rel="stylesheet" href="lib/font-awesome/css/font-awesome.css">
+    <link href='http://fonts.googleapis.com/css?family=Ropa+Sans:400,400italic' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700' rel='stylesheet' type='text/css'>
 
     <script src="lib/jquery-1.7.2.min.js" type="text/javascript"></script>
 

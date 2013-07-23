@@ -14,7 +14,7 @@ include 'stats.php';
 function get()
 {
     var entityId = getPostValueByName('id');
-    if (entityId = "undefined") { return; }
+    if (entityId === undefined) { return; }
     $.ajax({
     type: "GET",
     url: "..\\Controller\\Controller.php?entity=Utilizator&get="+entityId,
@@ -30,6 +30,8 @@ function get()
    });
 }
 
+</script>
+<script>
 var dateDeTrimis = { 
                     "user" : { 
                                 "ID" : 22, 
@@ -67,16 +69,21 @@ function SaveData(entityName)
         dataType: "json"
         })
         .done(function(rezultat) { 
-           //window.alert("Saved "+ agentId);
+           if (rezultat.metainformation.success) { window.alert("Utilizatorul " + rezultat.data.username + " a fost creat/modificat cu succes" );
+          window.location = "lista-agenti.php";} else {
+            window.alert("ERROR\n Utilizatorul " + rezultat.data.username + " nu a putut fi creat/modificat" );
+          }
+
        }).fail(function(rezultat) { 
-           //window.alert("Error for entity: "+ entityName + ", id:" + dateDeTrimis.data.id);
+           window.alert("Eroare de server");
+           
        });
 }
 </script>
 
         <div class="container-fluid">
             <div class="row-fluid">
-                    
+                  
 <div class="btn-toolbar">
     <button id="saveData" class="btn btn-primary" onclick="SaveData('Utilizator')"><i class="icon-save"></i> Salveaza</button>
   <div class="btn-group">

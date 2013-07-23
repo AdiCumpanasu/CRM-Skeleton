@@ -23,8 +23,8 @@
                     
                 </ul>
                 <!-- <a class="brand" href="index.html"><span class="first">CRM</span> <span class="second">adlinesolutions</span></a> -->
-				                <a class="brand" href="index.html"><span class="first">CRM</span> <span class="second">adlinesolutions</span></a>
-<!--								<img style="padding-top: 10px;" src="images/logo.png"> -->
+				               <!-- <a class="brand" href="index.html"><span class="first">CRM</span> <span class="second">adlinesolutions</span></a> -->
+								<img style="padding-top: 10px;" src="images/logo.png"> 
         </div>
     </div>
     

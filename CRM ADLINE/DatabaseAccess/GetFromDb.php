@@ -215,4 +215,45 @@ $query = "INSERT INTO ".get_class($entity)." ( " .$objectColumns. ") VALUES ( " 
         return $TabelCurent;
     }
     
-}
+    
+    
+    
+    // Count Number of Elements By criteria
+    // json care vine in filtre: {"Name":"val","Name":"val","Name":"val", }
+    //
+    public function myCount($numeTabel, $filtre){
+        //primul parametru
+        if (($numeTabel == null) && $numeTabel == ''){
+            $this->logSql('nu exista numeTabel in parametri count');
+            return 0;
+        }
+        
+        
+        //verificare si string din filtre
+        $stringFiltre = '';
+        if (($filtre != null) && (count($filtre)>0)){
+            foreach ($filtre as $parametru => $valoare){
+                $stringFiltre.=' AND '.$parametru.' = '.$valoare;
+            }
+            if (strlen($stringFiltre)>4){
+                $stringFiltre = ' WHERE '.substr($stringFiltre, 4);
+            }    
+        }    
+        
+        //query si return linie[prima celula]
+        $query = ' SELECT COUNT(`id`) FROM '.$numeTabel . ' ' .$stringFiltre;
+        $this->logSql($query);
+        $result = mysqli_query($this->con, $query);
+        if ($result){
+            while($row = mysqli_fetch_array($result)){
+            $this->logSql('row exista');
+            
+            //returneaza numar
+                return $row[0];
+            }
+        } 
+    }
+    
+    
+    }
+

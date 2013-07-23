@@ -8,7 +8,7 @@
     <!-- important to be opened by PHP Tools, when also Phalanger Tools are installed -->
     <ProjectTypeGuids>{A0786B88-2ADB-4C21-ABE8-AA2D79766269}</ProjectTypeGuids>
     <AssemblyName>CRM ADLINE</AssemblyName>
- </PropertyGroup>
+  </PropertyGroup>
   <ItemGroup>
     <Compile Include="Controller\Controller.php">
       <SubType>Code</SubType>
@@ -140,7 +140,7 @@
     <Compile Include="View\Activitate.php">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="View\Copy of lista-clienti.php">
+    <Compile Include="View\perete.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="View\detalii-client.php">
