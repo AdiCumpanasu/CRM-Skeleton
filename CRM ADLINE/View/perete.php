@@ -16,7 +16,7 @@ include 'sidebar.php';
     <div  style="min-width: 1025px; margin-top: 15px;">
         <div  class="pull-left paginaActivitati" nume="activitati">
 		
-            <div name="activitate" class="paginaActivitate">
+            <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
 				<a href="" class="firmaActiv">MCA ADVERTISING SRL</a><br/>
 				<span class="adaugatDe">
@@ -34,7 +34,7 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
             
             
-             <div name="activitate" class="paginaActivitate">
+             <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">DCM DESIGN</a><br/>
                 <span class="adaugatDe">
@@ -51,7 +51,7 @@ include 'sidebar.php';
             </div>
             <div style="clear: both;"></div>
             
-            <div name="activitate" class="paginaActivitate">
+            <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">GEMINA PRINT ADVERTISING</a><br/>
 				<span class="adaugatDe">
@@ -71,7 +71,7 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
 			
 			
-			    <div name="activitate" class="paginaActivitate">
+			    <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">ATLAS MEDIA SERVICES SRL</a><br/>
 				<span class="adaugatDe">
@@ -89,7 +89,7 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
 			
 			
-			<div name="activitate" class="paginaActivitate">
+			<div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">DCM DESIGN</a><br/>
                 <span class="adaugatDe">
@@ -106,7 +106,7 @@ include 'sidebar.php';
             </div>
             <div style="clear: both;"></div>
 			
-			<div name="activitate" class="paginaActivitate">
+			<div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
 				<a href="" class="firmaActiv">MCA ADVERTISING SRL</a><br/>
 				<span class="adaugatDe">
@@ -124,7 +124,7 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
             
             
-            <div name="activitate" class="paginaActivitate">
+            <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">GEMINA PRINT ADVERTISING</a><br/>
 				<span class="adaugatDe">
@@ -144,7 +144,7 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
 			
 			
-			    <div name="activitate" class="paginaActivitate">
+			    <div name="activitate" class="celulaActivitate">
                 <div nume="celulaActivStanga" class="celulaActivStanga">
                 <a href="" class="firmaActiv">GEMINA PRINT ADVERTISING</a><br/>
 				<span class="adaugatDe">
@@ -167,7 +167,7 @@ include 'sidebar.php';
     
         <div class="pull-left paginaPostIt" nume="paginaPostIt">
         
-            <div  style="border: 9px solid #ebeff0; margin: 8px 4px; padding: 5px; background: #df6f18;  color: #ffffff; line-height: 1.2em; text-shadow: 1px 1px #aa53a2;">
+            <div class="celulaPostIt culoare1">
                 <b>de facut</b><br/><font size="-1">De crescut vanzarile cu 240% pe luna martie</font>
 				<div class="editarePostIt"><a href="">sterge</a><a href="">modifica</a><a href="">adauga nou</a></div>
             </div>
@@ -175,20 +175,20 @@ include 'sidebar.php';
             <div style="clear: both;"></div>
 			
             
-            <div  style="border: 9px solid #f3f0f0; margin: 8px 4px; padding: 5px; background: #54979e;  color: #ffffff; line-height: 1.2em; text-shadow: 1px 1px #aa53a2;">
+            <div class="celulaPostIt culoare2">
                 <b>de comandat de la Ruijie</b><br/><font size="-1">3 chei soft albastre, placa baza 6535 - 2 buc</font>
 				<div class="editarePostIt"><a href="">sterge</a><a href="">modifica</a><a href="">adauga nou</a></div>
             </div>
             <div style="clear: both;"></div>
 			
             
-            <div  style="border: 9px solid #ebeff0; margin: 8px 4px; padding: 5px;  background: #aa53a2;  color: #ffffff; line-height: 1.2em; text-shadow: 1px 1px #aa53a2;">
+            <div class="celulaPostIt culoare3">
                 <b>Flora</b><br/><font size="-1">De comandat conector cap printare Spectra Polaris (vreo 5 buc.)</font>
 				<div class="editarePostIt"><a href="">sterge</a><a href="">modifica</a><a href="">adauga nou</a></div>
             </div>
             <div style="clear: both;"></div>
 			
-			<div  style="border: 9px solid #ebeff0; margin: 8px 4px; padding: 5px;  background: #FCA314;  color: #ffffff; line-height: 1.2em; text-shadow: 1px 1px #aa53a2;">
+			<div class="celulaPostIt culoare4">
                 <b>Capete printare papagal</b><br/><font size="-1">De comandat pentru Media Zoom Constanta, ca nu mai avem deloc.</font>
 				<div class="editarePostIt"><a href="">sterge</a><a href="">modifica</a><a href="">adauga nou</a></div>
             </div>

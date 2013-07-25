@@ -147,7 +147,7 @@ font-size:0.9em;
 font-family: 'Droid Sans';
 }
 
-.paginaActivitate{
+.celulaActivitate{
 border: 0px solid #ccc;
 }
 
@@ -185,6 +185,28 @@ font-family: 'Droid Sans';
 font-size: 1.4em;
 }
 
+.celulaPostIt{
+border: 1px solid #777;
+margin: 8px 4px;
+padding: 5px;
+color: #ffffff;
+line-height: 1.2em;
+text-shadow: 1px 1px #aa53a2;
+}
+
+.culoare1 {
+background: #df6f18;
+}
+.culoare2 {
+background: #54979e;
+}
+.culoare3 {
+background: #aa53a2;
+}
+.culoare4 {
+background: #fca314;
+}
+
 a.firmaActiv{
 font-weight: bold;
 font-size: 1.3em;
@@ -219,7 +241,6 @@ opacity: 0.8;
 .editarePostIt  a{
 margin: 10px;
 float: right;
-color: #red;
 text-shadow: none;
 font-size:11px;
 font-style: italic;

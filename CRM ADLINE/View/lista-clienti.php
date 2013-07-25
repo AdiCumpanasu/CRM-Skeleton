@@ -51,7 +51,7 @@ include 'stats.php';
    .done(function(rezultat) { 
         $('#myTable').empty();
         $('#myTable').append($('\
-        <tr>\
+        <thead><tr>\
           <th>Nume Firma</th>\
           <th>Localitate</th>\
           <th>Judet</th>\
@@ -59,7 +59,7 @@ include 'stats.php';
 		  <th>Telefon</th>\
 		  <th>Agent</th>\
 		  <th></th>\
-        </tr>'));
+        </tr></thead>'));
         
         $.each(rezultat, function(i) {   // Pentru fiecare rand la pozitia i
         tRow = $('<tr>');

@@ -17,7 +17,8 @@
 
         <a href="#error-menu" class="nav-header" data-toggle="tab"><i class="icon-wrench"></i>Administrare</a>
         <ul id="error-menu" class="nav nav-list tab">
-            <li ><a href="lista-agenti.php">Agenti</a></li>
+            <li ><a href="editare-agent.php">Adauga agent</a></li>
+			<li ><a href="lista-agenti.php">Lista agenti</a></li>
         </ul>
 
     </div>

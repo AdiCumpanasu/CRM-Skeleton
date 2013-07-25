@@ -24,13 +24,20 @@ class DataAccess
 	// 	Logging function write to file and print to user (if debud request is set)
 	
 	public function MyDebug($className, $functionName, $severity, $userMessage){
-		if ($this->debugNeeded) { 
-			echo($text);
-		}
+		$text = '<style>span { color : gray } .DATA { color: green }  .SQL { color: blue } .ERROR { color : red} </style>'.
+			'<div>'.
+				'<span class="myClass">'.$className.'</span> '.
+				'<span class="myFunction">'.$functionName.'</span> '.
+				'<span class="myLevel">'.$severity.'</span> '.
+				'<span class="'.$severity.'">'.$userMessage.'</span> '.
+			'</div>';
 		$myFile = "logfile.html";
         $fh = fopen($myFile, 'a') or die("can't open file");
         fwrite($fh, $text . "</br>");
         fclose($fh);
+	   if ($this->debugNeeded) { 
+			echo($text);
+		}
 	}
 
 
@@ -40,18 +47,7 @@ class DataAccess
 	
        // Check for debugging request and initializa the debug request flag
        $this->debugNeeded = isset($_GET['d']);
-       $text = '<style>span { color : gray } .DATA { color: green }  .SQL { color: blue } .ERROR { color : red} </style>'.
-			'<div>'.
-				'<span class="myClass">'.$className.'</span> '.
-				'<span class="myFunction">'.$functionName.'</span> '.
-				'<span class="myLevel">'.$severity.'</span> '.
-				'<span class="'.$severity.'">'.$userMessage.'</span> '.
-			'</div>';
-		$myFile = "logfile.html";
-        $fh = fopen($myFile, 'w') or die("can't open file");
-        fwrite($fh, $text . "</br>");
-        fclose($fh);
-	   $this->MyDebug('DataAccess', 'constructor', 'INFO', null);
+       $this->MyDebug('DataAccess', 'constructor', 'INFO', null);
 	   
 	   // Connect to the datbase using mysqli (multiquery support)
         $this->con = mysqli_connect("localhost","root",null,"test");
