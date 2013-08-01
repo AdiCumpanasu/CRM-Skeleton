@@ -134,7 +134,7 @@ class DataAccess
         $this->MyDebug('DataAccess', 
 			'insert', 
 			'INFO', 
-			" Creaza elementul ".$entity->id." of type: ".get_class($entity));
+			" Creeaza elementul ".$entity->id." of type: ".get_class($entity) . json_encode($entity));
  
 		// Append names and values of this object properties in separate strings
 		$propertyNames  = "";
@@ -155,8 +155,8 @@ class DataAccess
 				{
 					// Append this property name and value 
 					// into separate strings
-					$propertyNames	.=", `".$propertyName 	."` ";
-					$columnValues	.=", '".$propertyValue	."' ";
+					$propertyNames	.= ", `".$propertyName 	."` ";
+					$objectValues	.= ", '".$propertyValue	."' ";
                 }       
 			}
 		}
@@ -165,7 +165,7 @@ class DataAccess
 		if (strlen($objectValues) 	> 1){ $objectValues = 	substr($objectValues, 1); 	}
 
 		// Prepare the qwery string
-		$sql = "INSERT INTO `".get_class($entity)."` ( " .$objectColumns. ") VALUES ( " . $objectValues . " ) "; 
+		$sql = "INSERT INTO `".get_class($entity)."` ( " .$propertyNames. ") VALUES ( " . $objectValues . " ) "; 
 		$this->MyDebug('DataAccess', 
 			'insert', 
 			'SQL', 
@@ -331,23 +331,23 @@ class DataAccess
         // Collect results if exists
 		if ($result){
 			// As long as I can fetch rows from the resultset
-            while($row = mysqli_fetch_array($result))
+            while($row = mysqli_fetch_assoc($result))
             {
-				$i = 0;
 				// Prepare the array of columns (this is the equivalent of a DataRow)
 				$randCurent = array();
 				
-                // For each needed column
+           			
+		         // For each needed column
 				foreach ($row as $coloanaRow)
                 {
-					// Append the value of the current cell to the array of this row`s values
-                    $randCurent[] = $row[$i];
-                    $i++;
+                	// Append the value of the current cell to the array of this row`s values
+                    $randCurent[] = $coloanaRow;
+                    
                 }
                 
 				// Append the current row to the table of results
                 $tabelRezultate[] =  $randCurent;
-            }
+        	}
         }
 		$this->MyDebug('DataAccess', 
 							'read', 

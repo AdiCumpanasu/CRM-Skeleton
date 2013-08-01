@@ -123,6 +123,15 @@ input.myRequired {
     color: #a91625;
 }
 
+.tableFirma td, .tableFirma th {
+	border-top: 1px solid #DDDDDD;
+    line-height: 14px;
+    padding: 5px;
+    text-align: left;
+    vertical-align: top;
+}
+
+
 .stanga{
 display: inline;
 float: left;
@@ -185,6 +194,14 @@ font-family: 'Droid Sans';
 font-size: 1.4em;
 }
 
+.editarePostIt  a{
+margin: 10px;
+float: right;
+text-shadow: none;
+font-size:11px;
+font-style: italic;
+}
+
 .celulaPostIt{
 border: 1px solid #777;
 margin: 8px 4px;
@@ -192,6 +209,10 @@ padding: 5px;
 color: #ffffff;
 line-height: 1.2em;
 text-shadow: 1px 1px #aa53a2;
+}
+.celulaPostIt:hover{
+  filter: alpha(opacity=85);
+  opacity: 0.85;
 }
 
 .culoare1 {
@@ -205,6 +226,15 @@ background: #aa53a2;
 }
 .culoare4 {
 background: #fca314;
+
+}
+
+.culoareStatbar {
+background: #f5f5f5;
+}
+.culoareLogo {
+background: #485060;
+color: #ffffff;
 }
 
 a.firmaActiv{
@@ -214,10 +244,8 @@ color: #000000;
 }
 
 a.firmaActiv:hover{
-font-weight: bold;
 font-size: 1.3em;
-
-color: #000000;
+color: orange;
 text-decoration: underline;
 }
 
@@ -238,10 +266,33 @@ opacity: 0.8;
 
 }
 
-.editarePostIt  a{
-margin: 10px;
-float: right;
-text-shadow: none;
-font-size:11px;
-font-style: italic;
+.largerWider{
+position: absolute;
+	left: 40%;
+    width: 800px;
+	height: 60%;
+	top: 17%;
+	bottom: 10%;
 }
+
+
+.modalBody-large{
+    width: 740px;
+	height: 87%;
+	max-height: 1000px; !important;
+
+}
+
+.tabelPiese {
+    margin-left: 30px;
+}
+
+.tabelPiese th, td {
+    line-height: 1.2em;
+    vertical-align: text-top;
+    padding: 5px 3px;
+    text-align: left;
+    border-bottom: 1px solid #eeeeee;
+}
+
+

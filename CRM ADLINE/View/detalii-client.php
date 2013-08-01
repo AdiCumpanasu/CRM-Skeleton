@@ -24,7 +24,7 @@ include 'stats.php';
    <div class="block span5">
         <p class="block-heading">Date firma <a class="myDivLink" href="">modifica</a> <a href="" class="myDivLink"><i class="icon-trash"></i> sterge client</a></p>         
         <div class="block-body">
-            <table class="table">
+            <table class="tableFirma ">
 
               <tbody>
                 <tr>
@@ -128,9 +128,9 @@ SIBIU, ROMANIA</td>
         </div>
     </div>
         <div class="block span7 pull-right">
-        <p class="block-heading">Descriere <a class="myDivLink" href="">modifica</a></p>         
+        <p class="block-heading">Descriere</p>         
         <div class="block-body">
-            <p>Cumpara mult autocolant de la noi pentru ca sunt firma de casa a primariei din Constanta. Lucreaza mai mult cu Verla. Mai are si un magazin de calculatoare.</p>
+            <p contenteditable="true">Cumpara mult autocolant de la noi pentru ca sunt firma de casa a primariei din Constanta. Lucreaza mai mult cu Verla. Mai are si un magazin de calculatoare.</p>
 
         </div>
     </div>
@@ -140,7 +140,7 @@ SIBIU, ROMANIA</td>
         <div class="block-body">
 				<!-- REZULTAT  -->
             <p><b>Printer indoor ALS-750</b>
-              <a class="editLink" href="">editeaza</a>
+              <a class="editLink" href="">modifica</a>
               <a class="editLink" href=""><i class="icon-trash"></i> sterge echipament</a>
 			   <br>			  2 interventii
 <span class="adaugatDe">adaugat de <a href="">Alina</a> - <a href="">05/12/2013 12:33</a></b></span>
@@ -159,8 +159,28 @@ SIBIU, ROMANIA</td>
         <p class="block-heading">Fisiere <a class="myDivLink" href="">incarca fisier</a></p>         
         <div class="block-body">
 				<!-- REZULTAT  -->
-            <p><a class="fisierLink" href=""><i class="icon-file"></i> Oferta Sisteme de expunere 2013 - xls </a><a class="editLink" href="">inlocuieste</a>
-			<a class="editLink" href=""><i class="icon-trash"></i> sterge fisier</a></p>
+            <p><a class="fisierLink" href=""><i class="icon-file"></i> Oferta Sisteme de expunere 2013 - xls </a>
+			<a href="#" id="openBtn" class="editLink">vizualizeaza</a>
+			<a class="editLink" href="">inlocuieste</a>
+			<a class="editLink" href=""><i class="icon-trash"></i> sterge fisier</a>
+			
+			
+								
+
+								<div id="myModal" class="modal hide  largerWider" tabindex="-1" role="dialog">
+								<div class="modal-header">
+								<button type="button" class="close" data-dismiss="modal">×</button>
+								Oferta Sisteme de expunere 2013 - xls
+								</div>
+								<div class="modal-body modalBody-large">
+								<iframe src="http://docs.google.com/viewer?url=http%3A%2F%2Fads.com.ro%2Fintranet%2Ffis_clienti%2Fid8818_OFERTA_MATERIALE_11.06.2013_1370954406.xls&embedded=true"  autoscroll="no" style="width:98%; height:98%; border: 1px solid gray;"></iframe>
+								</div>
+
+								</div>
+			
+			
+			
+			</p>
 				<!-- REZULTAT  -->
 
         </div>
@@ -177,7 +197,21 @@ SIBIU, ROMANIA</td>
     </div>
 </div>
 
+<script>
+// script modal
 
+var frameSrc = "http://docs.google.com/viewer?url=http%3A%2F%2Fads.com.ro%2Fintranet%2Ffis_clienti%2Fid8818_OFERTA_MATERIALE_11.06.2013_1370954406.xls&embedded=true";
+
+$('#openBtn').click(function(){
+    $('#myModal').on('show', function () {
+
+        $('iframe').attr("src",frameSrc);
+      
+	});
+    $('#myModal').modal({show:true})
+});
+
+</script>
 <?php 
 include 'footer.php';
 ?>

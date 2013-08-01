@@ -28,6 +28,67 @@ include 'stats.php';
                 }
 
 
+                
+                
+        // cand apesi pe editare
+    function editClient(clientId)
+    {
+        $('#elementId').val(clientId);
+        $('#editForm').submit();
+    }
+    
+    // cand apesi pe stergere
+    function deleteClient(idRand, clientId)
+    {
+        //showModalDialog();
+        $.ajax({
+        type: "POST",
+        url: "../Controller/Controller.php?arhivare="+clientId+"&entity=Firma",
+        dataType: "json"
+        })
+        .done(function(rezultat) { 
+           //window.alert("Delete client "+ clientId);
+           $('#'+idRand).remove();
+       }).fail(function(rezultat) { 
+           window.alert("Error for clientId: "+ clientId);
+       });
+        
+    }
+    
+    function showModalDialog()
+    {
+        var modalWindow = $('<div class="modal small hide fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">');
+        var modalHeader = $('<div class="modal-header">');
+        var modalHeaderButton = $('<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>');
+        var modalHeaderTitle = $('<h3 id="myModalLabel">Confirmare stergere</h3>');
+        var modalBody = $('<div class="modal-body">');
+        var modalFooter = $('<div class="modal-footer">');
+        var modalFooterClose = $('<button class="btn" data-dismiss="modal" aria-hidden="true">Anuleaza</button>');
+        var modalFooterDelete = $('<button class="btn btn-danger" data-dismiss="modal">STERGE CLIENT</button>');
+        var continutBody = '<p class="error-text"><i class="icon-warning-sign modal-icon"></i>Esti sigur ca vrei sa stergi definitiv acest client?</p>';
+        
+        modalFooterClose.click(function(){
+            modalWindow.modal.toggle();
+        });
+        modalFooterDelete.click(function(){
+            deleteclient(randCurentId, randDbId); 
+        });
+        
+        modalHeader.append(modalHeaderButton);
+        modalHeader.append(modalHeaderTitle);
+        modalBody.append(continutBody);
+        modalFooter.append(modalFooterClose);
+        modalFooter.append(modalFooterDelete);
+        
+        modalWindow.append(modalHeader);
+        modalWindow.append(modalBody);
+        modalWindow.append(modalFooter);
+        
+        $('#confirmationDialog').append(modalWindow);
+    }
+                
+                
+                
     function readTable(numeleTabeluluiDeInterogat)
     { 
     
@@ -52,17 +113,36 @@ include 'stats.php';
         $('#myTable').empty();
         $('#myTable').append($('\
         <thead><tr>\
+        <th></th>\
+        <th></th>\
           <th>Nume Firma</th>\
           <th>Localitate</th>\
           <th>Judet</th>\
 		  <th>Email</th>\
 		  <th>Telefon</th>\
-		  <th>Agent</th>\
+		  <th>client</th>\
 		  <th></th>\
         </tr></thead>'));
         
         $.each(rezultat, function(i) {   // Pentru fiecare rand la pozitia i
-        tRow = $('<tr>');
+                        var tRow = $('<tr>');
+                        tRow.attr("id","rand"+i);
+                        tRow.click(function(){ randCurentId = tRow.attr("id"); randDbId = rezultat[i][0];});
+                        var pencilCell =  $('<td>');
+                        var pencil =  $('<i class="icon-pencil">');
+                        pencilCell.append(pencil);
+                        pencilCell.click(function(){ 
+                            editClient(rezultat[i][0]);
+                        });
+                        tRow.append(pencilCell);
+                        
+                        var myTd = $('<td>');
+                        myTd.append($('<a href="#myModal" role="button" data-toggle="modal"><i class="icon-trash"></i></a>'));
+                        myTd.click(function(){ showModalDialog();});
+                        tRow.append(myTd);
+                        
+                        
+                        
             $.each(rezultat[i], function(j) { // Pentru fiecare celula j din randul i
                 var cell_ID = "cell_"+i+"_"+j;
                 var continutCelulaTabel;
@@ -132,6 +212,7 @@ include 'stats.php';
             <div class="row-fluid">
                     
 <div class="btn-toolbar">
+<form id='editForm' action='editare-client.php' method='get'><input type='hidden' name='id' id='elementId'/></form>
     <button class="btn btn-primary" onclick="window.location.href='editare-client.php'"><i class="icon-plus"></i> Adauga Client</button>
 	       <button class="btn">Exporta</button>
 	 <form style="display: inline;" >
@@ -148,7 +229,7 @@ include 'stats.php';
 
   </div>
 </div>
-<div class="well">
+<div class="well"  style="border: 0px solid white;">
     <table id="myTable" class="table table-striped ">
         <tr>
           <th>Crt.</th>

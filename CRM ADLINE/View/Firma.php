@@ -2,8 +2,37 @@
     table,th, td { border: 1px solid black; }
 </style>
     
-    <script src="..\\lib\\jquery\\jquery.js"></script>
     
+	<script type="text/JavaScript" src=".\\lib\\genericJS\\framework.js"></script> 
+	<script src="..\\lib\\js\\jquery.js"></script> 
+	<link rel="stylesheet" type="text/css" href="..\\lib\\bootstrap\\css\\bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="..\\lib\\bootstrap\\css\\adline.css">
+    <link rel="stylesheet" type="text/css" href="..\\stylesheets\\theme.css">
+    <link rel="stylesheet" href="..\\lib\\font-awesome\\css\\font-awesome.css">
+    
+    
+    <script src="../lib/js/excanvas.min.js"></script>
+	<script src="../lib/js/jquery.min.js"></script>
+	<script src="../lib/js/jquery.flot.min.js"></script>
+	<script src="../lib/js/jquery.flot.resize.min.js"></script>
+	<script src="../lib/js/jquery.peity.min.js"></script>
+	<script src="../lib/underscore/underscore-min.js"></script>
+	<script src="../lib/jquery/jquery-1.8.3.js"></script>
+	<script src="../lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="../lib/bootstrap-datepicker/js/bootstrap-datepicker.js"></script>
+	<script src="../lib/js/unicorn.js"></script>
+	<script src="../lib/select2-3.4.1/select2.js"></script>
+	<script src="../lib/DataTables-1.9.4/media/js/jquery.dataTables.js"></script>
+	<script src="../lib/DataTables-1.9.4/extras/TableTools/media/js/TableTools.js"></script>
+	<script src="../lib/DataTables-1.9.4/extras/TableTools/media/js/ZeroClipboard.js"></script>
+	<script src="../lib/jquery.address-1.5/jquery.address-1.5.min.js"></script>
+	<script src="../lib/Sonic/src/sonic.js"></script>
+	<script src="../lib/node-uuid/uuid.js"></script>
+    
+    
+    
+	<script src="lib\\genericJS\\table.js"></script>
+	<script src="lib\\genericJS\\modal.js"></script>
     Click one row ! <br><br><br>
     
     <table id='myTable'></table>

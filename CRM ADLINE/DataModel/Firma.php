@@ -60,6 +60,10 @@ class Firma {
 	/**
 	 * @AttributeType string
 	 */
+    public $judet;
+    public $tara;
+    public $localitate;
+    
 	public $adresa;
 	/**
 	 * @AttributeType string

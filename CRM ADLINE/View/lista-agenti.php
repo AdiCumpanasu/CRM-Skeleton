@@ -167,7 +167,7 @@ include 'stats.php';
 
   </div>
 </div>
-<div class="well">
+<div class="well" style="border: 0px;">
     <table id="myTable" class="table ">
       <thead>
         <tr>

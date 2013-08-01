@@ -140,6 +140,9 @@
     <Compile Include="View\Activitate.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\Copy %282%29 of lista-clienti.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="View\perete.php">
       <SubType>Code</SubType>
     </Compile>
@@ -194,6 +197,9 @@
     <Compile Include="View\PersoanaContact.php">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="View\piese.php">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="View\sidebar.php">
       <SubType>Code</SubType>
     </Compile>
@@ -201,6 +207,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="View\sign-up.php">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="View\statistici.php">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="View\stats.php">

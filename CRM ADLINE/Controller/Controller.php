@@ -66,16 +66,7 @@ class Controller {
             }
        }
         
-$newValues = "";
-$properties = get_object_vars($_POST["data"]);
-foreach ($properties as $propertyName => $propertyValue)
-                {
-                    //if (! is_array($entity->{$propertyName}))
-                        {
-$this->setObjectType->{$propertyName} = $propertyValue;
 
-}
-}
 if ($id<0){
 $this->dataAccess->MyDebug("Object does not exist. Create!");
 	$affected_randuri = $this->dataAccess->insert($this->obiectCurent);

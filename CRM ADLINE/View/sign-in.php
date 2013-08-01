@@ -19,7 +19,7 @@ include 'navbar.php';
                     <input type="text" class="span12" id="_username">
                     <label>Parola</label>
                     <input type="password" class="span12" id="_password">
-                    <a href="index.html" class="btn btn-primary pull-right">Login</a>
+                    <a href="lista-clienti.php" class="btn btn-primary pull-right">Login</a>
                     <div class="clearfix"></div>
                 </form>
             </div>
